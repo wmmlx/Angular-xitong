@@ -1,0 +1,126 @@
+<div class="hometitle">
+    <span class="glyphicon glyphicon-home"></span>
+    <i>当前位置:</i>
+    <a>成绩信息</a>
+    <i>/</i>
+    <em>修改</em>
+</div>
+<div class="row searchbox">
+    <div class="col-lg-1">
+        <span class='glyphicon glyphicon-search'></span>
+        <i>搜索</i>
+    </div>
+    <div class="form-group col-lg-5 usersearch">
+        <input type="text" ng-model='searchchengji' class="form-control"  placeholder="输入搜索内容">
+    </div>
+</div>
+<!-- 学生信息 -->
+<table class="table table-striped table-hover">
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>班级</th>
+        <th>专业</th>
+        <th>科目</th>
+        <th>成绩</th>
+        <th>编辑</th>
+        <th>删除</th>
+    </tr>
+    <tr ng-repeat='infolist in studentInfo | filter:searchchengji'>
+        <td>{{infolist.xuehao}}</td>
+        <td>{{infolist.name}}</td>
+        <td>{{infolist.banji}}</td>
+        <td>{{infolist.zhuanyu}}</td>
+        <td>{{infolist.kenu}}</td>
+        <td>{{infolist.chengji}}</td>
+        <td ng-click='bianji($index)' data-toggle="modal" data-target="#chengjiModal">
+            <span class='glyphicon glyphicon-pencil'></span>
+        </td>
+        <td ng-click='bianji($index)' data-toggle="modal" data-target="#delchengjiModal">
+            <span class='glyphicon glyphicon-trash'></span>
+        </td>
+    </tr>
+</table>
+<!-- 翻页 -->
+<nav class='pageturn'>
+    <ul class="pagination">
+        <li ng-click='addpage()' ng-class="curpage<=1?'disabled':''">
+            <a>&laquo;</a>
+        </li>
+        <li ng-click='changepage(page)' ng-repeat='page in pages' ng-class="page==curpage?'active':''">
+            <a>{{page}}</a>
+        </li>
+        <li ng-click='reducePage()' ng-class="curpage>=5?'disabled':''">
+            <a>&raquo;</a>
+        </li>
+    </ul>
+</nav>
+<!-- 模态框 修改信息 -->
+<div class="modal fade" id="chengjiModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" >
+                  学生成绩修改
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form  role="form">
+                    <div class="form-group">
+                        <label for="exampleInputxuehao">学号：</label>
+                        <input ng-model='currchangeInfo.xuehao' ng-value="currchangeInfo.xuehao" type="text" class="form-control" id="exampleInputxuehao">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputname">姓名：</label>
+                        <input ng-model='currchangeInfo.name' ng-value="currchangeInfo.name"  type="text" class="form-control" id="exampleInputxuehao">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputbanji">班级：</label>
+                        <input ng-model='currchangeInfo.banji' ng-value="currchangeInfo.banji"  type="text" class="form-control" id="exampleInputbanji">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputzhuanyu">专业：</label>
+                        <input ng-model='currchangeInfo.zhuanyu' ng-value="currchangeInfo.zhuanyu"  type="text" class="form-control" id="exampleInputzhuanyu">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputpro">科目：</label>
+                        <input ng-model='currchangeInfo.kenu' ng-value="currchangeInfo.shengyuandi"  type="text" class="form-control" id="exampleInputpro">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputbeizhu">成绩：</label>
+                        <input ng-model='currchangeInfo.chengji' ng-value="currchangeInfo.beizhu"  type="text" class="form-control" id="exampleInputbeizhu">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button data-dismiss="modal"  ng-click='saveData()' type="button" class="btn btn-primary">提交更改</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 模态框 确认删除 -->
+<div class="modal fade" id="delchengjiModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" >
+                  删除信息
+                </h4>
+            </div>
+            <div class="modal-body">
+              确定删除吗？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button data-dismiss="modal"  ng-click='delData()' type="button" class="btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

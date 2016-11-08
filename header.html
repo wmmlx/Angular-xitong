@@ -1,0 +1,19 @@
+<div class="col-lg-2 col-sm-3 col-xs-4 header-left ">
+  <h1>HENU UNIVERSITY</h1>
+  <span ng-click="changeAsiderState()" id='changemenustate' class="glyphicon glyphicon-th-list"></span>
+</div>
+<div class="col-lg-8  col-sm-7 col-xs-4 ">
+    <h4 class='title'>学生信息管理系统</h4>
+</div>
+<div class="col-lg-2  col-sm-2 col-xs-4 header-right">
+  <div ng-click="toggle()" class="userInfo">
+      <em></em>
+      <i>Victoria</i>
+      <span class="glyphicon glyphicon-chevron-down"></span>
+  </div>
+</div>
+  <div  ng-show='showMenu' class="list-group usercenter">
+    <a href="#" class="list-group-item"><span class='glyphicon glyphicon-user'></span>个人中心</a>
+    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-cog"></span>设置</a>
+    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-off"></span>退出</a>
+  </div>

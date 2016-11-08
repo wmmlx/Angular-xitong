@@ -1,0 +1,20 @@
+appCtrl.controller('xuankeinfoCtrl',function($scope,$stateParams,$http){
+  $scope.courselist=[];
+  $scope.surecourseData=[
+    {
+      "name":"操作系统",
+      "user":"张凯",
+      "data":"周三上午1-2节",
+      "adress":"3号教学楼3101"
+    }
+  ];
+  $http.get('/mock/xuanke1.json')
+      .then(function(res){
+        $scope.courselist=res.data;
+      },function(err){
+        console.log("err");
+      })
+  $scope.delData=function(index){
+      $scope.surecourseData=index;
+    }
+})

@@ -1,0 +1,223 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,p,ul,ol,dl,li,dt,dd,h1,h2,h3,h4,h5,h6,fieldset,lenged{margin:0;padding:0;}
+img{border:0;display:block;}
+li{list-style:none;}
+a{text-decoration:none;color:#333;}
+a:hover{text-decoration: none;color:#444;}
+body{font:12px "微软雅黑";}
+h1,h3,h4,h2,h5,h6,b,strong{font-weight:normal;}
+i,em{font-style:normal;}
+html,body{height:100%;}
+.clear:after{content:".";clear:both;display:block;height:0;overflow:hidden;visibility:hidden;}
+/*盒子*/
+.containerbox,html,body{
+  width: 100%;
+  height: 100%;
+  background: #fcfcfc;
+}
+
+/*头部*/
+.header{
+  height: 50px;
+  padding: 0 10px;
+  background: #37474f;
+  color: #fff;
+  border-bottom-color: rgba(255,255,255,0.1);
+}
+.header h1{
+  font-size: 16px;
+  line-height: 50px;
+  font-family: "楷体";
+  float: left;
+}
+#changemenustate{
+  float: right;
+  line-height: 50px;
+  cursor: pointer;
+}
+.title{
+  text-align: center;
+  font-size: 20px;
+  line-height: 50px;
+  font-family: "楷体";
+}
+.userInfo{
+  float: right;
+  line-height: 50px;
+  cursor: pointer;
+}
+.userInfo em{
+  margin: 10px 10px 0 0;
+  width: 30px;
+  height: 30px;
+  background: url('/images/user.jpg');
+  background-size: 30px 30px;
+  float: left;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.userInfo  span{
+  margin-left: 10px;
+}
+.usercenter{
+  width: 140px;
+  height: 100px;
+  color: #333;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  position: absolute;
+  right: 10px;
+  top:50px;
+  z-index: 10000;
+}
+.usercenter .list-group-item{
+  border: 0;
+}
+
+.sidebar {
+	padding: 0;
+	display: none;
+}
+@media (min-width: 768px) {
+	.sidebar {
+  	position: fixed;
+		top: 50px;
+		bottom: 0;
+		left: 0;
+		z-index: 1000;
+		display: block;
+		margin: 0;
+		padding: 0;
+		overflow-x: hidden;
+		overflow-y: auto;
+		background: #263238;
+		box-shadow: 1px 0px 10px rgba(0, 0, 0, .05);
+	}
+}
+
+@media (max-width: 768px) {
+	.sidebar .attribution {
+		display: none;
+	}
+}
+@media (max-width: 600px) {
+	.header-left{
+    display: none;
+  }
+}
+
+
+/*左边菜单栏*/
+
+#accordion{
+  margin-bottom: 0;
+}
+#accordion .panel{
+  border-radius: 0;
+  border: 0;
+}
+#accordion .panel-heading{
+  border-radius: 0;
+  height: 40px;
+  padding: 0;
+}
+
+#accordion .panel-heading .panel-title a{
+  font-size: 12px;
+  line-height: 40px;
+  padding-left: 10px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 40px;
+  color: rgba(255,255,255,0.75);
+  background:  #263238;
+}
+#accordion .panel-heading .panel-title a:hover{
+  color: rgba(255,255,255,1);
+}
+
+#accordion .panel-heading .panel-title .active{
+  background-color: #26a69a;
+  color: rgba(255,255,255,1);
+}
+#accordion .panel-body .subactive{
+  color: rgba(255,255,255,1);
+  border-bottom: 1px solid #ddd;
+}
+#accordion .panel-body i:hover{
+  color: rgba(255,255,255,1);
+}
+
+#accordion .panel-body{
+  color: rgba(255,255,255,0.75);
+  background:  #263238;
+  border: 0!important;
+}
+.lefticon,.centercon{
+  float: left;
+  line-height: 40px;
+}
+.centercon{
+  margin-left: 10px;
+}
+.righticon{
+  float: right;
+  margin-right: 10px;
+  line-height: 40px;
+}
+.panel-submenu li{
+  height: 30px;
+  cursor: pointer;
+}
+
+.panel-submenu li i{
+  margin-left: 10px;
+}
+
+/*右边内容*/
+.hometitle{
+  margin-top: 50px;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #ddd;
+}
+
+.searchbox{
+  height: 40px;
+  line-height: 40px;
+  margin-left: 5px;
+}
+.searchbox span{
+  font-size: 20px;
+  margin-top: 14px;
+  float: left;
+}
+.searchbox i{
+  margin-top: 10px;
+  float: left;
+}
+.usersearch{
+  float: left;
+  margin: 8px 0 0 10px;
+  line-height: 40px;
+  font-size: 12px;
+}
+.right{
+  text-align: right;
+}
+.left{
+  text-align: left;
+}
+.center{
+  text-align: center;
+}
+.pageturn{
+  float: right;
+}
+
+.selectbox{
+  padding: 10px;
+}

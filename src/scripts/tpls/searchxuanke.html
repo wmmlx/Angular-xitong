@@ -1,0 +1,38 @@
+<div class="hometitle">
+    <span class="glyphicon glyphicon-home"></span>
+    <i>当前位置:</i>
+    <a>选课信息</a>
+    <i>/</i>
+    <em>查询</em>
+</div>
+<div class="row selectbox">
+    <span>学年：</span>
+    <select>
+      <option>2013-2014学年上学期</option>
+      <option>2013-2014学年下学期</option>
+      <option>2014-2015学年上学期</option>
+      <option>2014-2015学年上学期</option>
+    </select>
+    <span style='margin-left:20px;'>课程性质：</span>
+    <select>
+      <option>专业课</option>
+      <option>校选课</option>
+    </select>
+</div>
+<table class="table table-striped table-hover">
+  <caption>可选课程</caption>
+    <tr>
+      <th>课程名</th>
+      <th>学时</th>
+      <th>学分</th>
+      <th>课程性质</th>
+      <th></th>
+    </tr>
+    <tr ng-repeat='course in courselist'>
+      <td>{{course.name}}</td>
+      <td>{{course.xueshi}}</td>
+      <td>{{course.xuefen}}</td>
+      <td>{{course.xingzhi}}</td>
+      <td><a ui-sref='home.xuankedetail({id:course.id})' style='text-decoration: underline;cursor:pointer' class='text-primary'>详情</a></td>
+    </tr>
+</table>

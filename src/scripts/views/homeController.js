@@ -1,0 +1,26 @@
+appCtrl.controller('homeCtrl',function($scope,$http){
+    $scope.menuList=[];
+    $scope.curr=0;
+    $scope.curSub=0;
+    $scope.changeStyle=function(index){
+      $scope.curr=index;
+      $scope.curSub=0;
+    }
+    $http.get('/mock/menu.json')
+    .then(function(res){
+    $scope.menuList=res.data.menu;
+    },function(){
+      console.log("err");
+    })
+    $scope.showMenu=false;
+    $scope.showAsider=true;
+    $scope.toggle = function() {
+      $scope.showMenu=!$scope.showMenu;
+     };
+   $scope.changeAsiderState=function(){
+    $scope.showAsider=!$scope.showAsider;
+   }
+   $scope.changesubmenustyle=function(index){
+       $scope.curSub=index;
+   }
+})

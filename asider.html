@@ -1,0 +1,19 @@
+<div class="panel-group" id="accordion">
+    <div ng-repeat='list in menuList' class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                  <a ng-class="$index==curr?'active':''"  ng-click='changeStyle($index)' ui-sref='{{list.submenu[0].url}}' class='menuone' data-toggle="collapse" data-parent="#accordion"
+                  ng-href="{{'#'+list.id}}">
+                    <span  class="lefticon glyphicon glyphicon-user"></span>
+                    <i class="centercon">{{list.title}}</i>
+                    <span ng-class="$index==curr?'glyphicon-chevron-down':'glyphicon-chevron-right'"  class="righticon col-xs-1 glyphicon"></span>
+                  </a>
+            </h4>
+        </div>
+        <div ng-class="$index==0?'collapse in':'collapse'"  id="{{list.id}}" class="panel-collapse">
+            <ul class="panel-body panel-submenu">
+                <li ng-repeat='sublist in list.submenu'   ng-click='changesubmenustyle($index)' ui-sref='{{sublist.url}}'><span class='glyphicon glyphicon-share-alt'></span><i ng-class="$index==curSub?'subactive':''" >{{sublist.action}}</i></li>
+            </ul>
+        </div>
+    </div>
+</div>
